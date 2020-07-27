@@ -7,38 +7,38 @@
 </template>
 
 <script>
-import Header from './components/layout/Header'
-import Todos from './components/Todos'
-import AddTodo from './components/AddTodo'
-import axios from 'axios'
+import Header from "./components/layout/Header";
+import Todos from "./components/Todos";
+import AddTodo from "./components/AddTodo";
+import axios from "axios";
 export default {
-  name: 'App',
+  name: "App",
   components: {
     Header,
     Todos,
-    AddTodo,
+    AddTodo
   },
   data() {
     return {
-      todos: [],
-    }
+      todos: []
+    };
   },
   methods: {
     deleteTodo(id) {
-      this.todos = this.todos.filter((todo) => todo.id !== id)
+      this.todos = this.todos.filter(todo => todo.id !== id);
     },
     addTodo(newTodo) {
-      console.log('good')
-      this.todos = [...this.todos, newTodo]
-    },
+      // here keep going
+      this.todos = [...this.todos, newTodo];
+    }
   },
   created() {
     axios
-      .get('https://jsonplaceholder.typicode.com/todos?_limit=5')
-      .then((res) => (this.todos = res.data))
-      .catch((err) => console.log(err))
-  },
-}
+      .get("https://jsonplaceholder.typicode.com/todos?_limit=5")
+      .then(res => (this.todos = res.data))
+      .catch(err => console.log(err));
+  }
+};
 </script>
 
 <style>
